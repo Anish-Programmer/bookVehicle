@@ -97,7 +97,7 @@ console.log("Her runs login 3")
                 role: user.role,
             })
         }else {
-            res.status(401).json({message: "Invalid email or password"});
+            res.status(400).json({message: "Invalid email or password"});
         }
 // console.log("her run login 4")
      } catch (error) {

@@ -81,24 +81,31 @@ axios.interceptors.response.use(
 	(response) => response,
 	async (error) => {
 		const originalRequest = error.config;
+
+		// Checking for 401 Unauthorized error
 		if (error.response?.status === 401 && !originalRequest._retry) {
-			originalRequest._retry = true;
+
+			originalRequest._retry = true; // preventing infinite loop of retrying
+			// toast.error("Please login again.");
+
 
 			try {
-				// If a refresh is already in progress, wait for it to complete
+
+
+			// 	// If a refresh is already in progress, wait for it to complete
 				if (refreshPromise) {
 					await refreshPromise;
 					return axios(originalRequest);
 				}
 
-				// Start a new refresh process
+			// 	// Start a new refresh process
 				refreshPromise = useUserStore.getState().refreshToken();
 				await refreshPromise;
 				refreshPromise = null;
 
 				return axios(originalRequest);
 			} catch (refreshError) {
-				// If refresh fails, redirect to login or handle as needed
+				// If the refresh fails, log out the user and show a login error toast
 				useUserStore.getState().logout();
 				return Promise.reject(refreshError);
 			}

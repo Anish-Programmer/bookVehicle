@@ -38,6 +38,7 @@ export const useBookListStore = create((set, get) => ({
 			get().calculateTotals();
 		} catch (error) {
 			toast.error(error.response.data.message || "An error occurred");
+			
 		}
 	},
 	removeFromBookList: async (vehicleId) => {
