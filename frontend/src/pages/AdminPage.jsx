@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
 import { BarChart, PlusCircle, Car } from 'lucide-react';
-import { Label } from 'recharts';
+
 
 import {motion} from 'framer-motion'
 import CreateVehicleForm from '../components/CreateVehicleForm';
