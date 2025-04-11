@@ -1,4 +1,4 @@
-# Features of of Project
+# Features of  Project
 
 - MERN stack project
 - Authentication and Authorization
