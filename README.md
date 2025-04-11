@@ -10,4 +10,4 @@
 - CRUD operation
 - State managent
     - Used 'zustand' -> light-weight, simple , state-management for React
-    -      
+        
