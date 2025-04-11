@@ -8,6 +8,6 @@
     - sessions
 
 - CRUD operation
-- State managent
+- State management
     - Used 'zustand' -> light-weight, simple , state-management for React
         
